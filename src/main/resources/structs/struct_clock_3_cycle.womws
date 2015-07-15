@@ -1,0 +1,5 @@
+-- --
+draw_conductor 0 0 1 0
+draw_conductor 1 1 2 1
+draw_tail 1 0
+draw_head 0 0

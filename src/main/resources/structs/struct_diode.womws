@@ -1,0 +1,6 @@
+-- --
+draw_conductor 1 2 2 2
+draw_conductor 1 2 1 0
+draw_conductor 1 0 2 0
+draw_conductor 0 1 1 1
+draw_conductor 2 0 3 1
