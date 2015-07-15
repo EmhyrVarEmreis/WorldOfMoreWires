@@ -5,12 +5,12 @@ WorldOfMoreWires
 Description - POL
 -----------------
 
-Wireworld cellular automaton simulator.
+Symulator automatu komórkowego typu Wireworld.
 
 Description - ENG
 -----------------
 
-Symulator automatu komórkowego typu Wireworld.
+Wireworld cellular automaton simulator.
 
 TODO
 ----
