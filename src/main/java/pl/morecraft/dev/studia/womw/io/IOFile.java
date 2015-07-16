@@ -79,8 +79,10 @@ public final class IOFile {
 
         setProgressMax(4);
         setProgress(0);
-        BufferedReader br = new BufferedReader((path.startsWith(":::")) ? new InputStreamReader(IOFile.class.getResourceAsStream(path
-                .substring(3))) : new FileReader(path));
+        BufferedReader br = new BufferedReader(
+                (path.startsWith(":::")) ?
+                        new InputStreamReader(
+                                Thread.currentThread().getContextClassLoader().getResourceAsStream(path.substring(3))) : new FileReader(path));
         String l;// = br.readLine();
         String[] a;// = l.split(" ");
         Line line;
@@ -222,18 +224,20 @@ public final class IOFile {
 
         String extension = "";
 
-        if (ff.accept(new File("a.png")))
+        if (ff.accept(new File("a.png"))) {
             extension = "png";
-        else if (ff.accept(new File("a.jpg")))
+        } else if (ff.accept(new File("a.jpg"))) {
             extension = "jpg";
-        else if (ff.accept(new File("a.bmp")))
+        } else if (ff.accept(new File("a.bmp"))) {
             extension = "bmp";
+        }
         //else {
         // TODO Exception
         //}
 
-        if (!path.toLowerCase().endsWith("." + extension))
+        if (!path.toLowerCase().endsWith("." + extension)) {
             path = path + "." + extension;
+        }
 
         File f = new File(path);
 
@@ -272,8 +276,9 @@ public final class IOFile {
         ArrayList<Line> al = new ArrayList<>();
         ArrayList<Point> pl;
 
-        while ((line = lf.getNext()) != null)
+        while ((line = lf.getNext()) != null) {
             al.add(line);
+        }
 
         pl = lf.getStandalonePoints();
 
@@ -283,18 +288,25 @@ public final class IOFile {
          * Writting
 		 */
 
-        if (!path.toLowerCase().endsWith(".womws"))
+        if (!path.toLowerCase().endsWith(".womws")) {
             path += ".womws";
+        }
 
         PrintWriter writer = new PrintWriter(path, "UTF-8");
 
         writer.println("-- --");
 
-        for (Line l : al)
-            writer.println("draw_conductor " + l.getStartingPoint().x + " " + l.getStartingPoint().y + " " + l.getEndingPoint().x + " "
-                    + l.getEndingPoint().y);
-        for (Point p : pl)
+        for (Line l : al) {
+            writer.println(
+                    "draw_conductor " +
+                            l.getStartingPoint().x +
+                            " " + l.getStartingPoint().y +
+                            " " + l.getEndingPoint().x +
+                            " " + l.getEndingPoint().y);
+        }
+        for (Point p : pl) {
             writer.println("draw_conductor " + p.x + " " + p.y);
+        }
 
         setProgress(3);
 
@@ -302,10 +314,11 @@ public final class IOFile {
 
         while (it.hasNext()) {
             entry = it.next();
-            if (entry.getValue() == CellState.HEAD)
+            if (entry.getValue() == CellState.HEAD) {
                 writer.println("draw_head " + entry.getKey().x + " " + entry.getKey().y);
-            else if (entry.getValue() == CellState.TAIL)
+            } else if (entry.getValue() == CellState.TAIL) {
                 writer.println("draw_tail " + entry.getKey().x + " " + entry.getKey().y);
+            }
         }
 
         writer.close();
@@ -315,8 +328,9 @@ public final class IOFile {
     }
 
     private static void setProgress(int progress) {
-        if (progressBar != null)
+        if (progressBar != null) {
             progressBar.setValue(progress);
+        }
     }
 
     public static void setProgressableDialog(Progressable pb) {
@@ -324,8 +338,9 @@ public final class IOFile {
     }
 
     private static void setProgressMax(int progress) {
-        if (progressBar != null)
+        if (progressBar != null) {
             progressBar.setMaximum(progress);
+        }
     }
 
 }

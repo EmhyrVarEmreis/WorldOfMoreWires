@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <comment>World of More Wires Language File</comment>
+    <entry key="LOADING">Wczytywanie...</entry>
+    <entry key="OPTIMISATION">Optymalizacja...</entry>
+    <entry key="SAVING">Zapisywanie...</entry>
+    <entry key="SAVED">Zapisano!</entry>
+    <entry key="ABOUT">O programie...</entry>
+    <entry key="ACCEPT">Akceptuj</entry>
+    <entry key="REFRESH">Odśwież</entry>
+    <entry key="WARNING">Uwaga</entry>
+    <entry key="ERROR">Błąd</entry>
+    <entry key="ERROR_CRITICAL">Błąd krytyczny</entry>
+    <entry key="ERROR_QUANTIFICATION">Wystąpił błąd krytyczny podczas kwantyfikacji kolorów.</entry>
+    <entry key="INFORMATION">Informacja</entry>
+    <entry key="QUESTION">Pytanie</entry>
+    <entry key="MISC_CONDUCTOR">PRZEWODNIK</entry>
+    <entry key="MISC_HEAD">GŁOWA</entry>
+    <entry key="MISC_TAIL">OGON</entry>
+    <entry key="MISC_BACKGROUND">TŁO</entry>
+    <entry key="MAIN_PANEL_P_VIEW">WIDOK</entry>
+    <entry key="MAIN_PANEL_P_TOOL_BOX">RYSOWNIK</entry>
+    <entry key="MAIN_PANEL_P_INFO">KONTROLER</entry>
+    <entry key="MAIN_PANEL_B_EDIT_DELETE_TOOLTIP">Kasuj</entry>
+    <entry key="MAIN_PANEL_B_EDIT_CONDUCTOR_TOOLTIP">Rysuj przewodnik</entry>
+    <entry key="MAIN_PANEL_B_EDIT_HEAD_TOOLTIP">Rysuj głowę elektronu</entry>
+    <entry key="MAIN_PANEL_B_EDIT_TAIL_TOOLTIP">Rysuj ogon elektronu</entry>
+    <entry key="MAIN_PANEL_B_STRUCT_TOOLTIP">Rysuj strukturę</entry>
+    <entry key="MAIN_PANEL_B_NOTHING_TOOLTIP">Wyłącz narzędzie</entry>
+    <entry key="MAIN_PANEL_DELAY_TOOLTIP">Opóźnienie pomiędzy rundami</entry>
+    <entry key="MAIN_PANEL_CPR_TOOLTIP">Cykli na rundę</entry>
+    <entry key="MAIN_PANEL_START_TOOLTIP">Start</entry>
+    <entry key="MAIN_PANEL_STEP_TOOLTIP">Krok naprzód</entry>
+    <entry key="MAIN_PANEL_M_FILE">Plik</entry>
+    <entry key="MAIN_PANEL_M_EDIT">Edytuj</entry>
+    <entry key="MAIN_PANEL_M_HELP">Pomoc</entry>
+    <entry key="MAIN_PANEL_M_FILE_OPEN">Otwórz/Importuj...</entry>
+    <entry key="MAIN_PANEL_M_FILE_OPEN_CS">Otwórz plik .womw/.womws ...</entry>
+    <entry key="MAIN_PANEL_M_FILE_OPEN_IMAGE">Importuj plik obrazu...</entry>
+    <entry key="MAIN_PANEL_M_FILE_EXPORT">Eksportuj...</entry>
+    <entry key="MAIN_PANEL_M_FILE_EXPORT_IMAGE">Obraz...</entry>
+    <entry key="MAIN_PANEL_M_FILE_SAVE">Zapisz</entry>
+    <entry key="MAIN_PANEL_M_FILE_SAVE_AS">Zapisz jako...</entry>
+    <entry key="MAIN_PANEL_M_FILE_SAVE_AS_CORE">"Plik .womw ..."</entry>
+    <entry key="MAIN_PANEL_M_FILE_SAVE_AS_SCRIPT">Plik .womws ...</entry>
+    <entry key="MAIN_PANEL_M_EDIT_SETTINGS">Ustawienia</entry>
+    <entry key="MAIN_PANEL_M_EDIT_CLEAR">Czyść mapę</entry>
+    <entry key="MAIN_PANEL_M_HELP_MANUAL">Instrukcja...</entry>
+    <entry key="MAIN_PANEL_M_HELP_INFO">Informacje o programie...</entry>
+    <entry key="EXCEPTION_MAP_FILE_CORRUPTED">Wczytywanie mapy nie powiodło się! Plik jest uszkodzony!</entry>
+    <entry key="REQUIREMENTS">Minimalne wymagania:</entry>
+    <entry key="REQUIREMENTS_GPU">z obsługą OpenGL i akceleracji sprzętowej</entry>
+    <entry key="SETTINGS">Ustawienia</entry>
+    <entry key="SETTINGS_COLORS">KOLORY</entry>
+    <entry key="SETTINGS_CONDUCTOR">Przewodnik</entry>
+    <entry key="SETTINGS_HEAD">Głowa elektronu</entry>
+    <entry key="SETTINGS_TAIL">Ogon elektronu</entry>
+    <entry key="SETTINGS_BACKGROUND">Tło mapy</entry>
+    <entry key="SETTINGS_SCALE">SKALA</entry>
+    <entry key="SETTINGS_AUTOSAVE">AUTOZAPIS USTAWIEŃ</entry>
+    <entry key="SETTINGS_AUTOSAVE_TEXT">Autozapis ostatnich ustawień przy zamykaniu programu. (Zapis do pliku w folderze
+        z programem)
+    </entry>
+    <entry key="SETTINGS_SAVE_NOW">Czy chcesz zapisać konfigurację teraz? Zostanie zapisana w folderze z programem.
+    </entry>
+    <entry key="SETTINGS_MIS_AFTER_RERUN">Konfiguracja zostanie zapomniana po ponownym uruchomieniu programu!</entry>
+    <entry key="QUANTIFICATION_TEXT_A1">Kwantyfikuj</entry>
+    <entry key="QUANTIFICATION_TEXT_A2">do 4 kolorów</entry>
+    <entry key="QUANTIFICATION_TEXT_SELECT">Wybierz odpowiednie kolory po przez klikanie myszkĄ</entry>
+    <entry key="QUANTIFICATION_TEXT_ERROR_LOADING">Wystąpił błąd podczas wczytywania obrazka!</entry>
+    <entry key="QUANTIFICATION_TEXT_ERROR_PALETTE_A1">Obrazek może ni był popranie obsługiwany! Posiada</entry>
+    <entry key="QUANTIFICATION_TEXT_ERROR_PALETTE_A2">-bitową paletę kolorów. Do poprawnego działania wymagana jest
+        paleta 24-bitowa.
+    </entry>
+    <entry key="QUANTIFICATION_TEXT_IMPORT_FROM_GFX">Import z pliku graficznego</entry>
+    <entry key="MANUAL_TITLE">Istrukcja obsługi interfejsu</entry>
+    <entry key="MANUAL_LOADING_ERROR">Wystąpił błąd podczas ładowania instrukcji!</entry>
+    <entry key="STRUCT_CHOOSE">Wybór struktury</entry>
+    <entry key="STRUCT_ERROR_LOADING_RESOURCES">Wystapił błąd podczas ładowania zasobów!</entry>
+    <entry key="STRUCT_ERROR_LOADING_STRUCT">Wystąpił błąd podczas wczytywania struktury. Nieprawidłowe zaznaczenie.
+    </entry>
+</properties>

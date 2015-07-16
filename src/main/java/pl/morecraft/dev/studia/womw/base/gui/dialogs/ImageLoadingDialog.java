@@ -7,6 +7,7 @@ import pl.morecraft.dev.studia.womw.core.CellState;
 import pl.morecraft.dev.studia.womw.core.interfaces.CellsMapInterface;
 import pl.morecraft.dev.studia.womw.io.IOFile;
 import pl.morecraft.dev.studia.womw.misc.Configuration;
+import pl.morecraft.dev.studia.womw.misc.Translator;
 
 import javax.swing.*;
 import java.awt.*;
@@ -54,12 +55,21 @@ public class ImageLoadingDialog extends JDialog implements ActionListener, Mouse
         super(parent);
 
         if (imagePre == null) {
-            JOptionPane.showMessageDialog(parent, "Wystąpił błąd podczas wczytywania obrazka!", "Błąd", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(
+                    parent,
+                    Translator.getString("QUANTIFICATION_TEXT_ERROR_LOADING"),
+                    Translator.getString("ERROR"), JOptionPane.ERROR_MESSAGE);
             this.image = new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
         } else {
             if (imagePre.getColorModel().getPixelSize() != 24)
-                JOptionPane.showMessageDialog(parent, "Obrazek może ni był popranie obsługiwany! Posiada " + imagePre.getColorModel().getPixelSize()
-                        + "-bitową paletę kolorów. Do poprawnego działania wymagana jest paleta 24-bitowa.", "Uwaga", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(
+                        parent,
+                        Translator.getString("QUANTIFICATION_TEXT_ERROR_PALETTE_A1") +
+                                " " +
+                                imagePre.getColorModel().getPixelSize() +
+                                Translator.getString("QUANTIFICATION_TEXT_ERROR_PALETTE_A2"),
+                        Translator.getString("WARNING"),
+                        JOptionPane.WARNING_MESSAGE);
             this.image = new BufferedImage(imagePre.getWidth(), imagePre.getHeight(), imagePre.getType());
         }
 
@@ -69,7 +79,7 @@ public class ImageLoadingDialog extends JDialog implements ActionListener, Mouse
         this.mapTo = mapTo;
 
         this.setLayout(new GridLayout(1, 1));
-        this.setTitle("Import z pliku graficznego");
+        this.setTitle(Translator.getString("QUANTIFICATION_TEXT_IMPORT_FROM_GFX"));
         // this.setModal( true );
 
         this.setMinimumSize(new Dimension(500, 400));
@@ -148,12 +158,16 @@ public class ImageLoadingDialog extends JDialog implements ActionListener, Mouse
         this.ctrlP.setPreferredSize(new Dimension(200, 40));
         this.ctrlP.setLayout(new GridLayout(1, 3));
 
-        this.quantB = new JButton("<html>Kwantyfikuj<br>do 4 kolorów</html>");
+        this.quantB = new JButton("<html>" +
+                Translator.getString("QUANTIFICATION_TEXT_A1")
+                + "<br>" +
+                Translator.getString("QUANTIFICATION_TEXT_A2")
+                + "</html>");
         this.quantB.addActionListener(this);
-        this.refB = new JButton("Odśwież");
+        this.refB = new JButton(Translator.getString("REFRESH"));
         this.refB.addActionListener(this);
         this.refB.setEnabled(false);
-        this.readB = new JButton("AKCEPTUJ");
+        this.readB = new JButton(Translator.getString("ACCEPT").toUpperCase());
         this.readB.addActionListener(this);
         this.readB.setEnabled(false);
 
@@ -167,7 +181,11 @@ public class ImageLoadingDialog extends JDialog implements ActionListener, Mouse
 
         this.col = new JPanel[4];
 
-        String[] cl = new String[]{"PRZEWODNIK", "GŁOWA", "OGON", "TŁO"};
+        String[] cl = new String[]{
+                Translator.getString("MISC_CONDUCTOR"),
+                Translator.getString("MISC_HEAD"),
+                Translator.getString("MISC_TAIL"),
+                Translator.getString("MISC_BACKGROUND")};
 
         for (int i = 0; i < this.col.length; i++) {
             this.col[i] = new JPanel();
@@ -184,7 +202,7 @@ public class ImageLoadingDialog extends JDialog implements ActionListener, Mouse
             this.colP.add(this.col[i]);
         }
 
-        this.tip = new JLabel("Wybierz odpowiednie kolory po przez klikanie myszką", JLabel.CENTER);
+        this.tip = new JLabel(Translator.getString("QUANTIFICATION_TEXT_SELECT"), JLabel.CENTER);
 
         this.downP.add(this.ctrlP, BorderLayout.PAGE_START);
         this.downP.add(this.colP, BorderLayout.CENTER);
@@ -205,7 +223,10 @@ public class ImageLoadingDialog extends JDialog implements ActionListener, Mouse
             try {
                 this.quant(4);
             } catch (IOException e1) {
-                JOptionPane.showMessageDialog(this, "Wystąpił błąd krytyczny podczas kwantyfikacji kolorów.", "Błąd krytyczny",
+                JOptionPane.showMessageDialog(
+                        this,
+                        Translator.getString("ERROR_QUANTIFICATION"),
+                        Translator.getString("ERROR_CRITICAL"),
                         JOptionPane.ERROR_MESSAGE);
                 System.exit(1);
             }

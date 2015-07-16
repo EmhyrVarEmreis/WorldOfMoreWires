@@ -1,6 +1,7 @@
 package pl.morecraft.dev.studia.womw.base.gui.dialogs;
 
 import pl.morecraft.dev.studia.womw.misc.LoadFromRes;
+import pl.morecraft.dev.studia.womw.misc.Translator;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,7 +27,7 @@ public class AboutDialog extends JDialog {
         this.setLayout(null);
         this.setSize(400, 180);
         this.setResizable(false);
-        this.setTitle("O programie...");
+        this.setTitle(Translator.getString("ABOUT"));
 
         this.closeButton = new JButton(LoadFromRes.loadImageAsIconImage("icons/delete.png"));
         this.closeButton.setBounds(380, 126, 20, 20);
@@ -47,8 +48,8 @@ public class AboutDialog extends JDialog {
         this.date.setFont(new Font("Tahoma", Font.PLAIN, 10));
         this.date.setBounds(140, 30, 240, 20);
 
-        this.req = new JLabel("<html><b>Minimalne wymagania:</b><br/>CPU: Pentium 4 3.0 GHz<br/>RAM: 1024 MB<br/>" +
-                "GPU: z obsługą OpenGL i akceleracji sprzętowej<br/>HDD: 200 MB<br/>Java: 1.7</html>");
+        this.req = new JLabel("<html><b>" + Translator.getString("REQUIREMENTS") + "</b><br/>CPU: Pentium 4 3.0 GHz<br/>RAM: 1024 MB<br/>" +
+                "GPU: " + Translator.getString("REQUIREMENTS_GPU") + "<br/>HDD: 200 MB<br/>Java: 1.7</html>");
         this.req.setFont(new Font("Tahoma", Font.PLAIN, 10));
         this.req.setBounds(140, 45, 240, 100);
 

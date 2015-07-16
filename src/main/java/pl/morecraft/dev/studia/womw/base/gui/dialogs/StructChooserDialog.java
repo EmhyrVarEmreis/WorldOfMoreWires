@@ -7,6 +7,7 @@ import pl.morecraft.dev.studia.womw.core.CellState;
 import pl.morecraft.dev.studia.womw.core.interfaces.CellsMapInterface;
 import pl.morecraft.dev.studia.womw.io.IOFile;
 import pl.morecraft.dev.studia.womw.misc.OtherStuff;
+import pl.morecraft.dev.studia.womw.misc.Translator;
 
 import javax.swing.*;
 import java.awt.*;
@@ -42,7 +43,7 @@ public class StructChooserDialog extends JDialog implements ActionListener, Mous
 
         this.map = new CellsMapV1();
 
-        this.setTitle("Wyb�r struktury");
+        this.setTitle(Translator.getString("STRUCT_CHOOSE"));
         this.setSize(400, 300);
         this.setMinimumSize(new Dimension(400, 300));
         this.setLayout(new BorderLayout());
@@ -69,7 +70,7 @@ public class StructChooserDialog extends JDialog implements ActionListener, Mous
         this.p1 = new JPanel();
         this.p1.setLayout(new BorderLayout());
         this.p1.setPreferredSize(new Dimension(100, 300));
-        this.bA = new JButton("Akceptuj");
+        this.bA = new JButton(Translator.getString("ACCEPT"));
         this.bA.addActionListener(this);
         this.bA.setPreferredSize(new Dimension(100, 30));
 
@@ -90,18 +91,22 @@ public class StructChooserDialog extends JDialog implements ActionListener, Mous
 
         URL url = Thread.currentThread().getContextClassLoader().getResource("structs");
         if (url == null) {
-            JOptionPane.showMessageDialog(null, "Wystapił błąd podczas ładowania zasobów!", "Błąd!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(
+                    null,
+                    Translator.getString("STRUCT_ERROR_LOADING_RESOURCES"),
+                    Translator.getString("ERROR"),
+                    JOptionPane.ERROR_MESSAGE);
         } else {
-            File dir = null;
+            File dir;
             try {
                 dir = new File(url.toURI());
+                if (dir.isDirectory()) {
+                    for (File nextFile : dir.listFiles()) {
+                        this.tas.append(nextFile.getName().substring(0, nextFile.getName().lastIndexOf('.')) + "\n");
+                    }
+                }
             } catch (URISyntaxException e) {
                 // e.printStackTrace();
-            }
-            if (dir != null) {
-                for (File nextFile : dir.listFiles()) {
-                    this.tas.append(nextFile.getName().substring(0, nextFile.getName().lastIndexOf('.')) + "\n");
-                }
             }
         }
 
@@ -124,9 +129,13 @@ public class StructChooserDialog extends JDialog implements ActionListener, Mous
         Object o = e.getSource();
         if (o == this.tas && this.tas.isTextChanged()) {
             try {
-                IOFile.readWoMWScriptFile(":::/pl/morecraft/dev/studia/womw/resources/structs/" + this.tas.getSelectedText() + ".womws", this.map);
+                IOFile.readWoMWScriptFile(":::structs/" + this.tas.getSelectedText() + ".womws", this.map);
             } catch (Exception e1) {
-                JOptionPane.showMessageDialog(this, "Wyst�pi� b��d podczas wczytywania struktury. Nieprawid�owe zaznaczenie.", "Uwaga!", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(
+                        this,
+                        Translator.getString("STRUCT_ERROR_LOADING_STRUCT"),
+                        Translator.getString("WARNING"),
+                        JOptionPane.WARNING_MESSAGE);
                 //System.exit( 1 );
             }
             this.image = new BufferedImage(StructChooserDialog.this.map.getSize().width, StructChooserDialog.this.map.getSize().height,

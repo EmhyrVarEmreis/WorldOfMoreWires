@@ -1,5 +1,7 @@
 package pl.morecraft.dev.studia.womw.misc;
 
+import pl.morecraft.dev.studia.womw.misc.enums.Language;
+
 import java.awt.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -10,6 +12,8 @@ import java.util.Properties;
 
 public class Configuration {
 
+    public static Language LANGUAGE = Language.XX;
+    public static Language LANGUAGE_DEFAULT = Language.XX;
     public static Color CONDUCTOR_COLOR = Color.BLACK;
     public static Color HEAD_COLOR = Color.RED;
     public static Color NONE_COLOR = Color.WHITE;
@@ -21,12 +25,16 @@ public class Configuration {
 
     public static int SCALE = 10;
 
+    public static String defaultSettingsFile = "/womw.properties.xml";
+
     public static void saveConfiguration(String path) {
-        if (path == null)
+        if (path == null) {
             path = System.getProperty("user.dir");
-        path += "\\womw.properties.xml";
+        }
+        path += Configuration.getDefaultSettingsFile();
 
         Properties p = new Properties();
+        p.setProperty("LANGUAGE", LANGUAGE.toString());
         p.setProperty("CONDUCTOR_COLOR", CONDUCTOR_COLOR.getRGB() + "");
         p.setProperty("HEAD_COLOR", HEAD_COLOR.getRGB() + "");
         p.setProperty("TAIL_COLOR", TAIL_COLOR.getRGB() + "");
@@ -37,7 +45,7 @@ public class Configuration {
         p.setProperty("AUTOSAVE", AUTOSAVE + "");
 
         try {
-            p.storeToXML(new FileOutputStream(path), "WoMWConf", "UTF-8");
+            p.storeToXML(new FileOutputStream(path), "World of More Wires Configuration File", "UTF-8");
         } catch (IOException e) {
             e.printStackTrace(); // todo Exception
         }
@@ -45,9 +53,10 @@ public class Configuration {
     }
 
     public static void readConfiguration(String path) {
-        if (path == null)
+        if (path == null) {
             path = System.getProperty("user.dir");
-        path += "\\womw.properties.xml";
+        }
+        path += Configuration.getDefaultSettingsFile();
 
         Properties p = new Properties();
 
@@ -61,37 +70,53 @@ public class Configuration {
 
         String tmp;
 
+        tmp = p.getProperty("LANGUAGE");
+        if (tmp != null) {
+            LANGUAGE = Language.valueOf(tmp);
+        }
         tmp = p.getProperty("CONDUCTOR_COLOR");
-        if (tmp != null)
+        if (tmp != null) {
             CONDUCTOR_COLOR = new Color(Integer.valueOf(tmp));
+        }
         tmp = p.getProperty("HEAD_COLOR");
-        if (tmp != null)
+        if (tmp != null) {
             HEAD_COLOR = new Color(Integer.valueOf(tmp));
+        }
         tmp = p.getProperty("TAIL_COLOR");
-        if (tmp != null)
+        if (tmp != null) {
             TAIL_COLOR = new Color(Integer.valueOf(tmp));
+        }
         tmp = p.getProperty("NONE_COLOR");
-        if (tmp != null)
+        if (tmp != null) {
             NONE_COLOR = new Color(Integer.valueOf(tmp));
+        }
         tmp = p.getProperty("CYCLES_PER_ROUND");
-        if (tmp != null)
+        if (tmp != null) {
             CYCLES_PER_ROUND = Integer.valueOf(tmp);
+        }
         tmp = p.getProperty("DELAY_BETWEEN_CYCLES");
-        if (tmp != null)
+        if (tmp != null) {
             DELAY_BETWEEN_CYCLES = Integer.valueOf(tmp);
+        }
         tmp = p.getProperty("SCALE");
-        if (tmp != null)
+        if (tmp != null) {
             SCALE = Integer.valueOf(tmp);
+        }
         tmp = p.getProperty("AUTOSAVE");
-        if (tmp != null)
+        if (tmp != null) {
             AUTOSAVE = Boolean.valueOf(tmp);
-
-        try {
-            p.storeToXML(new FileOutputStream(path), "World of More Wires Configuration File", "UTF-8");
-        } catch (IOException e) {
-            e.printStackTrace(); // todo Exception
         }
 
+//        try {
+//            p.storeToXML(new FileOutputStream(path), "World of More Wires Configuration File", "UTF-8");
+//        } catch (IOException e) {
+//            e.printStackTrace(); // todo Exception
+//        }
+
+    }
+
+    public static String getDefaultSettingsFile() {
+        return defaultSettingsFile;
     }
 
 }

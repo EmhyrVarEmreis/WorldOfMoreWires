@@ -1,10 +1,12 @@
 package pl.morecraft.dev.studia.womw.base.gui.dialogs;
 
-import pl.morecraft.dev.studia.womw.misc.LoadFromRes;
+import pl.morecraft.dev.studia.womw.misc.Configuration;
+import pl.morecraft.dev.studia.womw.misc.Translator;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.net.URL;
 
 public class ManualDialog extends JDialog {
     /**
@@ -19,14 +21,19 @@ public class ManualDialog extends JDialog {
 
         this.setLayout(new GridLayout(1, 1));
         this.setSize(600, 400);
-        this.setTitle("Istrukcja obsługi interfejsu");
+        this.setTitle(Translator.getString("MANUAL_TITLE"));
 
         this.jep1 = new JEditorPane();
         this.jep1.setEditable(false);
         try {
-            this.jep1.setPage(ManualDialog.class.getResource("/" + LoadFromRes.RESOURCES_PREFIX + "resources/pomoc.html"));
+            URL url = Thread.currentThread().getContextClassLoader().getResource(
+                    "lng/" + Configuration.LANGUAGE.getCode() + "/help.xml");
+            if (url == null) {
+                throw new IOException();
+            }
+            this.jep1.setPage(url);
         } catch (IOException e) {
-            this.jep1.setText("Wystąpił błąd podczas ładowania instrukcji!");
+            this.jep1.setText(Translator.getString("MANUAL_LOADING_ERROR"));
         }
 
         this.sc1 = new JScrollPane(this.jep1, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);

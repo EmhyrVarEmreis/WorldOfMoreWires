@@ -3,6 +3,10 @@ package pl.morecraft.dev.studia.womw.base.run;
 import pl.morecraft.dev.studia.womw.base.gui.MainFrame;
 import pl.morecraft.dev.studia.womw.misc.Configuration;
 import pl.morecraft.dev.studia.womw.misc.LoadFromRes;
+import pl.morecraft.dev.studia.womw.misc.Translator;
+import pl.morecraft.dev.studia.womw.misc.enums.Language;
+
+import java.util.Locale;
 
 public class Main {
 
@@ -22,6 +26,16 @@ public class Main {
 		 * Reading properties
 		 */
         Configuration.readConfiguration(null);
+
+		/*
+         * Setting locale
+		 */
+        Configuration.LANGUAGE = Language.valueOf(Locale.getDefault().getLanguage().toUpperCase());
+
+		/*
+		 * reading locale
+		 */
+        Translator.createMap();
 
 		/*
 		 * Initializing Core

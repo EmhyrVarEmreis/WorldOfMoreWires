@@ -1,12 +1,12 @@
 package pl.morecraft.dev.studia.womw.base.gui;
 
 import pl.morecraft.dev.studia.womw.base.CellsMapV1;
-import pl.morecraft.dev.studia.womw.base.EdtModes;
 import pl.morecraft.dev.studia.womw.core.CellState;
 import pl.morecraft.dev.studia.womw.core.interfaces.CellsMapInterface;
 import pl.morecraft.dev.studia.womw.core.interfaces.UpdatableViewer;
 import pl.morecraft.dev.studia.womw.misc.Configuration;
 import pl.morecraft.dev.studia.womw.misc.OtherStuff;
+import pl.morecraft.dev.studia.womw.misc.enums.EditingMode;
 
 import javax.swing.*;
 import java.awt.*;
@@ -28,7 +28,7 @@ public class ViewPanel extends JPanel implements MouseListener, MouseMotionListe
     }
 
     private Point currentPoint, lastEdited;
-    private EdtModes editingMode;
+    private EditingMode editingMode;
     private BufferedImage image;
     private boolean isInEditingMode = false;
     private CellsMapInterface<CellState, Point, Map.Entry<Point, CellState>> mapMainFromWorker, mapToHoldStructs;
@@ -44,7 +44,7 @@ public class ViewPanel extends JPanel implements MouseListener, MouseMotionListe
 
     public ViewPanel(CellsMapInterface<CellState, Point, Map.Entry<Point, CellState>> map) {
         this.mapMainFromWorker = map;
-        this.editingMode = EdtModes.NOTHING;
+        this.editingMode = EditingMode.NOTHING;
 
         this.image = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
 
@@ -107,7 +107,7 @@ public class ViewPanel extends JPanel implements MouseListener, MouseMotionListe
         this.isInEditingMode = false;
     }
 
-    public EdtModes getEdtMode() {
+    public EditingMode getEdtMode() {
         return this.editingMode;
     }
 
@@ -118,7 +118,7 @@ public class ViewPanel extends JPanel implements MouseListener, MouseMotionListe
     private void insertStructureToMapAndDone() {
         this.mapMainFromWorker.insertMap(this.mapToHoldStructs, this.currentPoint.x, this.currentPoint.y);
         this.removeStructureToDraw();
-        this.editingMode = EdtModes.NOTHING;
+        this.editingMode = EditingMode.NOTHING;
     }
 
     public boolean isInEdtMode() {
@@ -128,10 +128,10 @@ public class ViewPanel extends JPanel implements MouseListener, MouseMotionListe
     @Override
     public void mouseClicked(MouseEvent e) {
         if (e.getModifiers() == MouseEvent.BUTTON1_MASK) {
-            if (this.editingMode == EdtModes.DRAW_STRUCT)
+            if (this.editingMode == EditingMode.DRAW_STRUCT)
                 this.insertStructureToMapAndDone();
         } else if (e.getModifiers() == MouseEvent.BUTTON3_MASK) {
-            if (this.editingMode == EdtModes.DRAW_STRUCT && this.mapToHoldStructs != null) {
+            if (this.editingMode == EditingMode.DRAW_STRUCT && this.mapToHoldStructs != null) {
                 OtherStuff.rotateMap(this.mapToHoldStructs);
                 this.refreshView();
             }
@@ -140,7 +140,7 @@ public class ViewPanel extends JPanel implements MouseListener, MouseMotionListe
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        if (((e.getModifiersEx() & (MouseEvent.BUTTON1_DOWN_MASK)) == MouseEvent.BUTTON1_DOWN_MASK) && (this.editingMode != EdtModes.NOTHING)) {
+        if (((e.getModifiersEx() & (MouseEvent.BUTTON1_DOWN_MASK)) == MouseEvent.BUTTON1_DOWN_MASK) && (this.editingMode != EditingMode.NOTHING)) {
             if (this.editPointOnMap(e.getPoint()))
                 this.refreshView();
         } else if ((e.getModifiersEx() & (MouseEvent.BUTTON2_DOWN_MASK)) == MouseEvent.BUTTON2_DOWN_MASK)
@@ -180,13 +180,13 @@ public class ViewPanel extends JPanel implements MouseListener, MouseMotionListe
             this.rescalePoint(this.currentPoint, Configuration.SCALE);
             this.statusBar.showPoint(this.currentPoint.x, this.currentPoint.y);
         }
-        if (this.editingMode == EdtModes.DRAW_STRUCT)
+        if (this.editingMode == EditingMode.DRAW_STRUCT)
             this.softRefresh();
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        if ((e.getButton() == MouseEvent.BUTTON1) && (this.editingMode != EdtModes.NOTHING)) {
+        if ((e.getButton() == MouseEvent.BUTTON1) && (this.editingMode != EditingMode.NOTHING)) {
             this.prepareEditingMode();
             this.editPointOnMap(e.getPoint());
             this.softRefresh();
@@ -198,7 +198,7 @@ public class ViewPanel extends JPanel implements MouseListener, MouseMotionListe
     @Override
     public void mouseReleased(MouseEvent e) {
         /*
-         * if ( (e.getButton() == MouseEvent.BUTTON1) && (this.editingMode != EdtModes.NOTHING) ) { this.editPointOnMap( e.getPoint() );
+         * if ( (e.getButton() == MouseEvent.BUTTON1) && (this.editingMode != EditingMode.NOTHING) ) { this.editPointOnMap( e.getPoint() );
 		 * this.softRefresh(); } else if ( e.getButton() == MouseEvent.BUTTON2 ) if ( this.getParent() != null ) this.getParent().dispatchEvent( e );
 		 */
     }
@@ -288,7 +288,7 @@ public class ViewPanel extends JPanel implements MouseListener, MouseMotionListe
 
     private void resizeView() {
         // System.out.println( "RESIZUJE" );
-        if ((this.editingMode != EdtModes.DRAW_STRUCT) && (this.maximumDimension.width <= this.image.getWidth())
+        if ((this.editingMode != EditingMode.DRAW_STRUCT) && (this.maximumDimension.width <= this.image.getWidth())
                 && (this.maximumDimension.height <= this.image.getHeight()))
             this.image = new BufferedImage(this.maximumDimension.width + 1, this.maximumDimension.height + 1, BufferedImage.TYPE_INT_ARGB);
         else
@@ -298,10 +298,10 @@ public class ViewPanel extends JPanel implements MouseListener, MouseMotionListe
         this.setPreferredSize(new Dimension(this.maximumDimension.width * Configuration.SCALE, this.maximumDimension.height * Configuration.SCALE));
     }
 
-    public void setEdtMode(EdtModes edtMode) {
+    public void setEdtMode(EditingMode edtMode) {
         this.editingMode = edtMode;
         this.lastEdited = new Point(-1, -1);
-        if (this.editingMode != EdtModes.DRAW_STRUCT) {
+        if (this.editingMode != EditingMode.DRAW_STRUCT) {
             this.removeStructureToDraw();
             this.refreshView();
         }
@@ -327,7 +327,7 @@ public class ViewPanel extends JPanel implements MouseListener, MouseMotionListe
         if (map_pre.getNumberOfElements() == 0)
             return;
         this.mapToHoldStructs = map_pre;
-        this.editingMode = EdtModes.DRAW_STRUCT;
+        this.editingMode = EditingMode.DRAW_STRUCT;
     }
 
     private void softRefresh() {
