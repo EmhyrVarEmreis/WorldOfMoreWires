@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Main-Class: pl.morecraft.dev.studia.womw.base.run.Main
+
