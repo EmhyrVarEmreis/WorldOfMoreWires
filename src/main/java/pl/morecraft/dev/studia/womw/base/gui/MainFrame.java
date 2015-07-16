@@ -21,11 +21,12 @@ public class MainFrame extends JFrame {
 
     public MainFrame() {
 
-        if (System.getProperty("os.name").startsWith("Windows"))
+        if (System.getProperty("os.name").startsWith("Windows")) {
             CoreBasicMain.setUILookAndFeel();
+        }
 
         this.setTitle("World of MoreWires");
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setLayout(new GridLayout(1, 1));
 
         this.setIconImage(loadImageAsImage("icons/womw_icon.png"));
@@ -41,13 +42,13 @@ public class MainFrame extends JFrame {
         this.mainPresentationPanel.setPreferredSize(new Dimension(800, 600));
 
 		/*
-		 * Adding components
+         * Adding components
 		 */
         this.add(this.mainPresentationPanel);
         this.setMinimumSize(this.mainPresentationPanel.getMinimumSize());
 
 		/*
-		 * Adding closing operation
+         * Adding closing operation
 		 */
         this.addWindowListener(exitListener);
 
@@ -62,8 +63,9 @@ public class MainFrame extends JFrame {
     private static WindowListener exitListener = new WindowAdapter() {
         @Override
         public void windowClosing(WindowEvent e) {
-            if (Configuration.AUTOSAVE)
+            if (Configuration.AUTOSAVE) {
                 Configuration.saveConfiguration(null);
+            }
         }
     };
 }

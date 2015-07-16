@@ -19,14 +19,14 @@ public class ManualDialog extends JDialog {
 
         this.setLayout(new GridLayout(1, 1));
         this.setSize(600, 400);
-        this.setTitle("Istrukcja obs�ugi interfejsu");
+        this.setTitle("Istrukcja obsługi interfejsu");
 
         this.jep1 = new JEditorPane();
         this.jep1.setEditable(false);
         try {
             this.jep1.setPage(ManualDialog.class.getResource("/" + LoadFromRes.RESOURCES_PREFIX + "resources/pomoc.html"));
         } catch (IOException e) {
-            this.jep1.setText("Wyst�pi� b��d podczas �adowania instrukcji!");
+            this.jep1.setText("Wystąpił błąd podczas ładowania instrukcji!");
         }
 
         this.sc1 = new JScrollPane(this.jep1, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);

@@ -89,7 +89,7 @@ public class MainPanel extends JPanel implements ActionListener {
         this.pToolBox.setLayout(new GridLayout(6, 1));
         this.pToolBox.setBorder(BorderFactory.createTitledBorder(null, "RYSOWNIK", TitledBorder.CENTER, TitledBorder.TOP, new Font("Tahoma",
                 Font.BOLD, 11)));
-        this.pToolBox.setPreferredSize(new Dimension(80, 160));
+        this.pToolBox.setPreferredSize(new Dimension(100, 160));
 
         this.pDown = new JPanel();
         this.pDown.setLayout(new BorderLayout());
@@ -111,7 +111,7 @@ public class MainPanel extends JPanel implements ActionListener {
         this.add(this.pDown, BorderLayout.PAGE_END);
 
 		/*
-		 * Przyciski Rysownika
+         * Przyciski Rysownika
 		 */
 
         this.bEditDelete = new JButton(LoadFromRes.loadImageAsIconImage("icons/draw_delete.png"));
@@ -436,7 +436,7 @@ public class MainPanel extends JPanel implements ActionListener {
                 };
                 break;
             default:
-                return;
+                //return;
         }
 
     }
