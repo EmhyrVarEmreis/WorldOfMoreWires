@@ -15,6 +15,5 @@ Wireworld cellular automaton simulator.
 TODO
 ----
 
-* Multilanguage
+* Add more languages to support
 * Optimisation
-* Fix some UI glithes
