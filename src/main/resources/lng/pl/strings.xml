@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-    <comment>World of More Wires Language File</comment>
+    <comment>World of More Wires Language File - PL/PL</comment>
     <entry key="LOADING">Wczytywanie...</entry>
     <entry key="OPTIMISATION">Optymalizacja...</entry>
     <entry key="SAVING">Zapisywanie...</entry>
@@ -67,9 +67,9 @@
     <entry key="SETTINGS_MIS_AFTER_RERUN">Konfiguracja zostanie zapomniana po ponownym uruchomieniu programu!</entry>
     <entry key="QUANTIFICATION_TEXT_A1">Kwantyfikuj</entry>
     <entry key="QUANTIFICATION_TEXT_A2">do 4 kolorów</entry>
-    <entry key="QUANTIFICATION_TEXT_SELECT">Wybierz odpowiednie kolory po przez klikanie myszkĄ</entry>
+    <entry key="QUANTIFICATION_TEXT_SELECT">Wybierz odpowiednie kolory po przez klikanie myszką</entry>
     <entry key="QUANTIFICATION_TEXT_ERROR_LOADING">Wystąpił błąd podczas wczytywania obrazka!</entry>
-    <entry key="QUANTIFICATION_TEXT_ERROR_PALETTE_A1">Obrazek może ni był popranie obsługiwany! Posiada</entry>
+    <entry key="QUANTIFICATION_TEXT_ERROR_PALETTE_A1">Obrazek może nie jest obsługiwany! Posiada</entry>
     <entry key="QUANTIFICATION_TEXT_ERROR_PALETTE_A2">-bitową paletę kolorów. Do poprawnego działania wymagana jest
         paleta 24-bitowa.
     </entry>
