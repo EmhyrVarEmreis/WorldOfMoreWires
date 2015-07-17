@@ -1,4 +1,4 @@
-package pl.morecraft.dev.studia.womw.base.gui;
+package pl.morecraft.dev.studia.womw.core.interfaces;
 
 public interface Progressable {
 

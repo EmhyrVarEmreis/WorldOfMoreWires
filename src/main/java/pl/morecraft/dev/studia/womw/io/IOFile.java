@@ -1,8 +1,8 @@
 package pl.morecraft.dev.studia.womw.io;
 
-import pl.morecraft.dev.studia.womw.base.gui.Progressable;
 import pl.morecraft.dev.studia.womw.core.CellState;
 import pl.morecraft.dev.studia.womw.core.interfaces.CellsMapInterface;
+import pl.morecraft.dev.studia.womw.core.interfaces.Progressable;
 import pl.morecraft.dev.studia.womw.misc.Configuration;
 import pl.morecraft.dev.tool.pointproccessor.Line;
 import pl.morecraft.dev.tool.pointproccessor.LineFinder;

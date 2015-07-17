@@ -41,10 +41,12 @@ public class CellsMapV1 implements CellsMapInterface<CellState, Point, Map.Entry
 
     @Override
     public Dimension getSize() {
-        if (this.map.size() == 0)
+        if (this.map.size() == 0) {
             return new Dimension(0, 0);
-        if (this.size == null)
+        }
+        if (this.size == null) {
             this.optimizeMap();
+        }
         return this.size;
     }
 
@@ -54,17 +56,24 @@ public class CellsMapV1 implements CellsMapInterface<CellState, Point, Map.Entry
     }
 
     private void optimizeMap() {
+        Point range = this.getBorderPoint();
+
+        this.size = new Dimension((range.x + 1), (range.y + 1));
+    }
+
+    private Point getBorderPoint() {
         Point range = new Point(0, 0);
 
         for (Map.Entry<Point, CellState> entry : this.map.entrySet()) {
-            if (entry.getKey().x > range.x)
+            if (entry.getKey().x > range.x) {
                 range.x = entry.getKey().x;
-            if (entry.getKey().y > range.y)
+            }
+            if (entry.getKey().y > range.y) {
                 range.y = entry.getKey().y;
+            }
         }
 
-        this.size = new Dimension((range.x + 1), (range.y + 1));
-
+        return range;
     }
 
     @Override
@@ -75,10 +84,11 @@ public class CellsMapV1 implements CellsMapInterface<CellState, Point, Map.Entry
     @Override
     public void putCell(Point position, CellState state) {
         this.size = null;
-        if (state == null || state == CellState.EMPTY)
+        if (state == null || state == CellState.EMPTY) {
             this.map.remove(position);
-        else
+        } else {
             this.map.put(new Point(position.x, position.y), state);
+        }
     }
 
     @Override
@@ -89,10 +99,11 @@ public class CellsMapV1 implements CellsMapInterface<CellState, Point, Map.Entry
     @Override
     public void setCell(Point position, CellState state) {
         this.size = null;
-        if (state == null || state == CellState.EMPTY)
+        if (state == null || state == CellState.EMPTY) {
             this.map.remove(position);
-        else
+        } else {
             this.map.put(position, state);
+        }
     }
 
     private void switchMap() {
@@ -112,16 +123,10 @@ public class CellsMapV1 implements CellsMapInterface<CellState, Point, Map.Entry
 
     @Override
     public void packToBorders() {
-        Point mrange = new Point(this.size.width, this.size.height);
+        Point mRange = this.getBorderPoint();
 
-        for (Map.Entry<Point, CellState> entry : this.map.entrySet()) {
-            if (entry.getKey().x < mrange.x)
-                mrange.x = entry.getKey().x;
-            if (entry.getKey().y < mrange.y)
-                mrange.y = entry.getKey().y;
-        }
-        this.size = new Dimension(((this.size.width == 0) && (this.size.height == 0)) ? 0 : (this.size.width + 1) - mrange.x,
-                ((this.size.width == 0) && (this.size.height == 0)) ? 0 : (this.size.height + 1) - mrange.y);
+        this.size = new Dimension(((this.size.width == 0) && (this.size.height == 0)) ? 0 : (this.size.width + 1) - mRange.x,
+                ((this.size.width == 0) && (this.size.height == 0)) ? 0 : (this.size.height + 1) - mRange.y);
     }
 
     @Override

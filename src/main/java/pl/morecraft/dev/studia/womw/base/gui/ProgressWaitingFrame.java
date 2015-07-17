@@ -1,5 +1,7 @@
 package pl.morecraft.dev.studia.womw.base.gui;
 
+import pl.morecraft.dev.studia.womw.core.interfaces.Progressable;
+
 import javax.swing.*;
 import java.awt.*;
 
