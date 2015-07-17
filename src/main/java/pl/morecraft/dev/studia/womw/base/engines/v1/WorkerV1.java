@@ -1,4 +1,4 @@
-package pl.morecraft.dev.studia.womw.base;
+package pl.morecraft.dev.studia.womw.base.engines.v1;
 
 import pl.morecraft.dev.studia.womw.core.CellState;
 import pl.morecraft.dev.studia.womw.core.interfaces.CellsMapInterface;

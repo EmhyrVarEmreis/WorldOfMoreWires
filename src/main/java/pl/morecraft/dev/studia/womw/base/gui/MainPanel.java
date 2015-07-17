@@ -1,6 +1,6 @@
 package pl.morecraft.dev.studia.womw.base.gui;
 
-import pl.morecraft.dev.studia.womw.base.WorkerV1;
+import pl.morecraft.dev.studia.womw.base.engines.v1.WorkerV1;
 import pl.morecraft.dev.studia.womw.base.gui.dialogs.*;
 import pl.morecraft.dev.studia.womw.io.IOFile;
 import pl.morecraft.dev.studia.womw.misc.Configuration;

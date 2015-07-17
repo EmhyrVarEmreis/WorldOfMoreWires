@@ -1,6 +1,6 @@
 package pl.morecraft.dev.studia.womw.base.gui.dialogs;
 
-import pl.morecraft.dev.studia.womw.base.CellsMapV1;
+import pl.morecraft.dev.studia.womw.base.engines.v1.CellsMapV1;
 import pl.morecraft.dev.studia.womw.base.gui.HandScrollListener;
 import pl.morecraft.dev.studia.womw.base.gui.TextAreaSelectable;
 import pl.morecraft.dev.studia.womw.core.CellState;

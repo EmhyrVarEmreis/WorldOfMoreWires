@@ -1,7 +1,7 @@
 package pl.morecraft.dev.studia.womw.base.gui.dialogs;
 
 import com.gurge.amd.Quantize;
-import pl.morecraft.dev.studia.womw.base.CellsMapV1;
+import pl.morecraft.dev.studia.womw.base.engines.v1.CellsMapV1;
 import pl.morecraft.dev.studia.womw.base.gui.HandScrollListener;
 import pl.morecraft.dev.studia.womw.core.CellState;
 import pl.morecraft.dev.studia.womw.core.interfaces.CellsMapInterface;
