@@ -27,7 +27,7 @@ public class ManualDialog extends JDialog {
         this.jep1.setEditable(false);
         try {
             URL url = Thread.currentThread().getContextClassLoader().getResource(
-                    "lng/" + Configuration.LANGUAGE.getCode() + "/help.xml");
+                    "lng/" + Configuration.LANGUAGE.getCode() + "/help.html");
             if (url == null) {
                 throw new IOException();
             }
