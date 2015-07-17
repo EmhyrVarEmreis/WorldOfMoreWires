@@ -294,7 +294,7 @@ public final class IOFile {
 
         PrintWriter writer = new PrintWriter(path, "UTF-8");
 
-        writer.println("-- --");
+        writer.println("-- World of More Wires Script File --");
 
         for (Line l : al) {
             writer.println(
