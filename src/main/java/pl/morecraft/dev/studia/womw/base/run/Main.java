@@ -13,9 +13,9 @@ public class Main {
     public static void main(String[] args) {
 
 		/*
-         * Miscellenous
+         * Miscellaneous
 		 */
-        LoadFromRes.RESOURCES_PREFIX = "pl/morecraft/dev/studia/womw/";
+        LoadFromRes.RESOURCES_PREFIX = "";
 
 		/*
          * Improving performance
