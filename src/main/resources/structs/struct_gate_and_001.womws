@@ -1,0 +1,17 @@
+-- World of More Wires Script File --
+-- Gate - AND - 001 --
+draw_conductor 13 6 17 6
+draw_conductor 3 3 6 0
+draw_conductor 10 5 12 5
+draw_conductor 0 3 3 3
+draw_conductor 7 2 11 6
+draw_conductor 13 4 13 2
+draw_conductor 11 6 11 4
+draw_conductor 6 0 9 0
+draw_conductor 0 5 2 5
+draw_conductor 6 3 8 3
+draw_conductor 3 7 3 6
+draw_conductor 7 4 10 1
+draw_conductor 5 7 5 4
+draw_conductor 3 7 4 8
+draw_conductor 10 1 12 1
