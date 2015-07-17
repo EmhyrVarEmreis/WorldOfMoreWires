@@ -1,5 +1,83 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-    <comment>World of More Wires Language File</comment>
+    <comment>World of More Wires Language File - EN/GB</comment>
+    <entry key="LOADING">Loading...</entry>
+    <entry key="OPTIMISATION">Optimisation...</entry>
+    <entry key="SAVING">Saving...</entry>
+    <entry key="SAVED">Saved!</entry>
+    <entry key="ABOUT">About...</entry>
+    <entry key="ACCEPT">Accept</entry>
+    <entry key="REFRESH">Refresh</entry>
+    <entry key="WARNING">Attention</entry>
+    <entry key="ERROR">Error</entry>
+    <entry key="ERROR_CRITICAL">Critical error</entry>
+    <entry key="ERROR_QUANTIFICATION">An error occurred while quantifying colors.</entry>
+    <entry key="INFORMATION">Information</entry>
+    <entry key="QUESTION">Question</entry>
+    <entry key="MISC_CONDUCTOR">CONDUCTOR</entry>
+    <entry key="MISC_HEAD">HEAD</entry>
+    <entry key="MISC_TAIL">TAIL</entry>
+    <entry key="MISC_BACKGROUND">BACKGROUND</entry>
+    <entry key="MAIN_PANEL_P_VIEW">VIEW</entry>
+    <entry key="MAIN_PANEL_P_TOOL_BOX">DRAWER</entry>
+    <entry key="MAIN_PANEL_P_INFO">CONTROLLER</entry>
+    <entry key="MAIN_PANEL_B_EDIT_DELETE_TOOLTIP">Erase</entry>
+    <entry key="MAIN_PANEL_B_EDIT_CONDUCTOR_TOOLTIP">Draw conductor</entry>
+    <entry key="MAIN_PANEL_B_EDIT_HEAD_TOOLTIP">Draw electron head</entry>
+    <entry key="MAIN_PANEL_B_EDIT_TAIL_TOOLTIP">Draw electron tail</entry>
+    <entry key="MAIN_PANEL_B_STRUCT_TOOLTIP">Draw struct</entry>
+    <entry key="MAIN_PANEL_B_NOTHING_TOOLTIP">Turn off current tool</entry>
+    <entry key="MAIN_PANEL_DELAY_TOOLTIP">Delay between rounds</entry>
+    <entry key="MAIN_PANEL_CPR_TOOLTIP">Cycles per round</entry>
+    <entry key="MAIN_PANEL_START_TOOLTIP">Start</entry>
+    <entry key="MAIN_PANEL_STEP_TOOLTIP">Step forward</entry>
+    <entry key="MAIN_PANEL_M_FILE">File</entry>
+    <entry key="MAIN_PANEL_M_EDIT">Edit</entry>
+    <entry key="MAIN_PANEL_M_HELP">Help</entry>
+    <entry key="MAIN_PANEL_M_FILE_OPEN">Open/Import...</entry>
+    <entry key="MAIN_PANEL_M_FILE_OPEN_CS">Open file .womw/.womws ...</entry>
+    <entry key="MAIN_PANEL_M_FILE_OPEN_IMAGE">Import image file...</entry>
+    <entry key="MAIN_PANEL_M_FILE_EXPORT">Export...</entry>
+    <entry key="MAIN_PANEL_M_FILE_EXPORT_IMAGE">Image...</entry>
+    <entry key="MAIN_PANEL_M_FILE_SAVE">Save</entry>
+    <entry key="MAIN_PANEL_M_FILE_SAVE_AS">Save as...</entry>
+    <entry key="MAIN_PANEL_M_FILE_SAVE_AS_CORE">"File .womw ..."</entry>
+    <entry key="MAIN_PANEL_M_FILE_SAVE_AS_SCRIPT">File .womws ...</entry>
+    <entry key="MAIN_PANEL_M_EDIT_SETTINGS">Settings</entry>
+    <entry key="MAIN_PANEL_M_EDIT_CLEAR">Erase map</entry>
+    <entry key="MAIN_PANEL_M_HELP_MANUAL">Manual...</entry>
+    <entry key="MAIN_PANEL_M_HELP_INFO">About this application...</entry>
+    <entry key="EXCEPTION_MAP_FILE_CORRUPTED">An error occurred while loading map! File is probably corrupted!</entry>
+    <entry key="REQUIREMENTS">Minimal requirements:</entry>
+    <entry key="REQUIREMENTS_GPU">with OpenGL and hardware acceleration support</entry>
+    <entry key="SETTINGS">Settings</entry>
+    <entry key="SETTINGS_COLORS">COLORS</entry>
+    <entry key="SETTINGS_CONDUCTOR">Conductor</entry>
+    <entry key="SETTINGS_HEAD">Electron head</entry>
+    <entry key="SETTINGS_TAIL">Electron tail</entry>
+    <entry key="SETTINGS_BACKGROUND">Map background</entry>
+    <entry key="SETTINGS_SCALE">SCALE</entry>
+    <entry key="SETTINGS_AUTOSAVE">AUTOSAVE SETTINGS</entry>
+    <entry key="SETTINGS_AUTOSAVE_TEXT">Auto-save current settings during program exit automaticially. (Configuration
+        stored in file localized next to this application)
+    </entry>
+    <entry key="SETTINGS_SAVE_NOW">Would you like to save this setting now? It will be stored in file localized next to
+        this application
+    </entry>
+    <entry key="SETTINGS_MIS_AFTER_RERUN">Configuration will be lost after closing application!</entry>
+    <entry key="QUANTIFICATION_TEXT_A1">Quantize</entry>
+    <entry key="QUANTIFICATION_TEXT_A2">to 4 colors</entry>
+    <entry key="QUANTIFICATION_TEXT_SELECT">Select proper colors by clicking proper fields</entry>
+    <entry key="QUANTIFICATION_TEXT_ERROR_LOADING">An error occurred while processing the image!</entry>
+    <entry key="QUANTIFICATION_TEXT_ERROR_PALETTE_A1">This image file format is not supported. It has</entry>
+    <entry key="QUANTIFICATION_TEXT_ERROR_PALETTE_A2">-bits color palette. This application requires 24-bits color
+        palette.
+    </entry>
+    <entry key="QUANTIFICATION_TEXT_IMPORT_FROM_GFX">Image file import</entry>
+    <entry key="MANUAL_TITLE">UI manual</entry>
+    <entry key="MANUAL_LOADING_ERROR">An error occurred during loading this help page!</entry>
+    <entry key="STRUCT_CHOOSE">Struct selection</entry>
+    <entry key="STRUCT_ERROR_LOADING_RESOURCES">An error occurred while loading resources!</entry>
+    <entry key="STRUCT_ERROR_LOADING_STRUCT">An error occurred during reading selected struct.</entry>
 </properties>
