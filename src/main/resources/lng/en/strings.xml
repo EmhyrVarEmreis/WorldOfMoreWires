@@ -47,7 +47,7 @@
     <entry key="MAIN_PANEL_M_EDIT_SETTINGS">Settings</entry>
     <entry key="MAIN_PANEL_M_EDIT_LANGUAGE">Language...</entry>
     <entry key="MAIN_PANEL_M_EDIT_CLEAR">Erase map</entry>
-    <entry key="MAIN_PANEL_M_HELP_MANUAL">Manual...</entry>
+    <entry key="MAIN_PANEL_M_HELP_MANUAL">Manual</entry>
     <entry key="MAIN_PANEL_M_HELP_INFO">About this application...</entry>
     <entry key="EXCEPTION_MAP_FILE_CORRUPTED">An error occurred while loading map! File is probably corrupted!</entry>
     <entry key="REQUIREMENTS">Minimal requirements:</entry>

@@ -47,7 +47,7 @@
     <entry key="MAIN_PANEL_M_EDIT_SETTINGS">Ustawienia</entry>
     <entry key="MAIN_PANEL_M_EDIT_LANGUAGE">Język...</entry>
     <entry key="MAIN_PANEL_M_EDIT_CLEAR">Czyść mapę</entry>
-    <entry key="MAIN_PANEL_M_HELP_MANUAL">Instrukcja...</entry>
+    <entry key="MAIN_PANEL_M_HELP_MANUAL">Instrukcja</entry>
     <entry key="MAIN_PANEL_M_HELP_INFO">Informacje o programie...</entry>
     <entry key="EXCEPTION_MAP_FILE_CORRUPTED">Wczytywanie mapy nie powiodło się! Plik jest uszkodzony!</entry>
     <entry key="REQUIREMENTS">Minimalne wymagania:</entry>

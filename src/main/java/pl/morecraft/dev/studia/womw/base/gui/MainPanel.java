@@ -2,6 +2,7 @@ package pl.morecraft.dev.studia.womw.base.gui;
 
 import pl.morecraft.dev.studia.womw.base.engines.v1.WorkerV1;
 import pl.morecraft.dev.studia.womw.base.gui.dialogs.*;
+import pl.morecraft.dev.studia.womw.core.interfaces.Translatable;
 import pl.morecraft.dev.studia.womw.io.IOFile;
 import pl.morecraft.dev.studia.womw.misc.Configuration;
 import pl.morecraft.dev.studia.womw.misc.CoreBasicMain;
@@ -25,7 +26,7 @@ import java.io.IOException;
 
 import static pl.morecraft.dev.studia.womw.misc.LoadFromRes.loadImageAsIconImage;
 
-public class MainPanel extends JPanel implements ActionListener {
+public class MainPanel extends JPanel implements ActionListener, Translatable {
 
     private static int MIN_W = 800, MIN_H = 600;
 
@@ -85,14 +86,10 @@ public class MainPanel extends JPanel implements ActionListener {
 
         this.pView = new JPanel();
         this.pView.setLayout(new GridLayout(1, 1));
-        this.pView.setBorder(BorderFactory.createTitledBorder(null, Translator.getString("MAIN_PANEL_P_VIEW"),
-                TitledBorder.CENTER, TitledBorder.TOP, new Font("Tahoma", Font.BOLD, 11)));
         this.pView.setPreferredSize(new Dimension(200, 160));
 
         this.pToolBox = new JPanel();
         this.pToolBox.setLayout(new GridLayout(6, 1));
-        this.pToolBox.setBorder(BorderFactory.createTitledBorder(null, Translator.getString("MAIN_PANEL_P_TOOL_BOX"),
-                TitledBorder.CENTER, TitledBorder.TOP, new Font("Tahoma", Font.BOLD, 11)));
         this.pToolBox.setPreferredSize(new Dimension(100, 160));
 
         this.pDown = new JPanel();
@@ -102,8 +99,6 @@ public class MainPanel extends JPanel implements ActionListener {
 
         this.pInfo = new JPanel();
         this.pInfo.setLayout(new FlowLayout());
-        this.pInfo.setBorder(BorderFactory.createTitledBorder(null, Translator.getString("MAIN_PANEL_P_INFO"),
-                TitledBorder.CENTER, TitledBorder.TOP, new Font("Tahoma", Font.BOLD, 11)));
         this.pInfo.setPreferredSize(new Dimension(0, 60));
         this.pInfo.setMinimumSize(new Dimension(200, 0));
 
@@ -120,27 +115,21 @@ public class MainPanel extends JPanel implements ActionListener {
 
         this.bEditDelete = new JButton(LoadFromRes.loadImageAsIconImage("icons/draw_delete.png"));
         this.bEditDelete.addActionListener(this);
-        this.bEditDelete.setToolTipText(Translator.getString("MAIN_PANEL_B_EDIT_DELETE_TOOLTIP"));
 
         this.bEditConductor = new JButton(LoadFromRes.loadImageAsIconImage("icons/draw_conductor.png"));
         this.bEditConductor.addActionListener(this);
-        this.bEditConductor.setToolTipText(Translator.getString("MAIN_PANEL_B_EDIT_CONDUCTOR_TOOLTIP"));
 
         this.bEditHead = new JButton(LoadFromRes.loadImageAsIconImage("icons/draw_head.png"));
         this.bEditHead.addActionListener(this);
-        this.bEditHead.setToolTipText(Translator.getString("MAIN_PANEL_B_EDIT_HEAD_TOOLTIP"));
 
         this.bEditTail = new JButton(LoadFromRes.loadImageAsIconImage("icons/draw_tail.png"));
         this.bEditTail.addActionListener(this);
-        this.bEditTail.setToolTipText(Translator.getString("MAIN_PANEL_B_EDIT_TAIL_TOOLTIP"));
 
         this.bStruct = new JButton(LoadFromRes.loadImageAsIconImage("icons/draw_struct.png"));
         this.bStruct.addActionListener(this);
-        this.bStruct.setToolTipText(Translator.getString("MAIN_PANEL_B_STRUCT_TOOLTIP"));
 
         this.bNothing = new JButton(LoadFromRes.loadImageAsIconImage("icons/draw_none.png"));
         this.bNothing.addActionListener(this);
-        this.bNothing.setToolTipText(Translator.getString("MAIN_PANEL_B_NOTHING_TOOLTIP"));
 
         this.pToolBox.add(this.bEditConductor);
         this.pToolBox.add(this.bEditHead);
@@ -156,22 +145,18 @@ public class MainPanel extends JPanel implements ActionListener {
         this.js1 = new JSlider(1, 1000, Configuration.DELAY_BETWEEN_CYCLES);
         this.js1.setPreferredSize(new Dimension(192, 32));
         this.js1.addChangeListener(e -> MainPanel.this.setDBC(MainPanel.this.js1.getValue()));
-        this.js1.setToolTipText(Translator.getString("MAIN_PANEL_DELAY_TOOLTIP"));
 
         this.js2 = new JSlider(1, 100, Configuration.CYCLES_PER_ROUND);
         this.js2.setPreferredSize(new Dimension(192, 32));
         this.js2.addChangeListener(e -> MainPanel.this.setCPR(MainPanel.this.js2.getValue()));
-        this.js2.setToolTipText(Translator.getString("MAIN_PANEL_CPR_TOOLTIP"));
 
         this.bToolStart = new JButton(LoadFromRes.loadImageAsIconImage("icons/tool_start.png"));
         this.bToolStart.addActionListener(this);
         this.bToolStart.setPreferredSize(new Dimension(32, 32));
-        this.bToolStart.setToolTipText(Translator.getString("MAIN_PANEL_START_TOOLTIP"));
 
         this.bToolStep = new JButton(LoadFromRes.loadImageAsIconImage("icons/tool_step.png"));
         this.bToolStep.addActionListener(this);
         this.bToolStep.setPreferredSize(new Dimension(32, 32));
-        this.bToolStep.setToolTipText(Translator.getString("MAIN_PANEL_STEP_TOOLTIP"));
 
         this.pInfo.add(new JLabel("  DBC:"));
         this.pInfo.add(this.js1);
@@ -208,47 +193,47 @@ public class MainPanel extends JPanel implements ActionListener {
 
         this.menuBar = new JMenuBar();
 
-        this.mFile = new JMenu(Translator.getString("MAIN_PANEL_M_FILE"));
+        this.mFile = new JMenu();
         this.mFile.setIcon(loadImageAsIconImage("icons/file.png"));
-        this.mEdit = new JMenu(Translator.getString("MAIN_PANEL_M_EDIT"));
+        this.mEdit = new JMenu();
         this.mEdit.setIcon(loadImageAsIconImage("icons/edit.png"));
-        this.mHelp = new JMenu(Translator.getString("MAIN_PANEL_M_HELP"));
+        this.mHelp = new JMenu();
         this.mHelp.setIcon(loadImageAsIconImage("icons/help.png"));
 
-        this.mFileOpen = new JMenu(Translator.getString("MAIN_PANEL_M_FILE_OPEN"));
+        this.mFileOpen = new JMenu();
         this.mFileOpen.setIcon(loadImageAsIconImage("icons/open.png"));
-        this.mFileOpenCS = new JMenuItem(Translator.getString("MAIN_PANEL_M_FILE_OPEN_CS"));
+        this.mFileOpenCS = new JMenuItem();
         this.mFileOpenCS.addActionListener(this);
         this.mFileOpenCS.setIcon(loadImageAsIconImage("icons/file_core.png"));
         this.mFileOpenCS.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.CTRL_MASK));
-        this.mFileOpenImage = new JMenuItem(Translator.getString("MAIN_PANEL_M_FILE_OPEN_IMAGE"));
+        this.mFileOpenImage = new JMenuItem();
         this.mFileOpenImage.addActionListener(this);
         this.mFileOpenImage.setIcon(loadImageAsIconImage("icons/image.png"));
         this.mFileOpenImage.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, InputEvent.CTRL_MASK));
         this.mFileOpen.add(this.mFileOpenCS);
         this.mFileOpen.add(this.mFileOpenImage);
 
-        this.mFileExport = new JMenu(Translator.getString("MAIN_PANEL_M_FILE_EXPORT"));
+        this.mFileExport = new JMenu();
         this.mFileExport.setIcon(loadImageAsIconImage("icons/export.png"));
 
-        this.mFileExportImage = new JMenuItem(Translator.getString("MAIN_PANEL_M_FILE_EXPORT_IMAGE"));
+        this.mFileExportImage = new JMenuItem();
         this.mFileExportImage.addActionListener(this);
         this.mFileExportImage.setIcon(loadImageAsIconImage("icons/image.png"));
         this.mFileExportImage.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, InputEvent.CTRL_MASK));
 
         this.mFileExport.add(this.mFileExportImage);
 
-        this.mFileSave = new JMenuItem(Translator.getString("MAIN_PANEL_M_FILE_SAVE"));
+        this.mFileSave = new JMenuItem();
         this.mFileSave.addActionListener(this);
         this.mFileSave.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_MASK));
         this.mFileSave.setIcon(loadImageAsIconImage("icons/save.png"));
-        this.mFileSaveAs = new JMenu(Translator.getString("MAIN_PANEL_M_FILE_SAVE_AS"));
+        this.mFileSaveAs = new JMenu();
         this.mFileSaveAs.setIcon(loadImageAsIconImage("icons/save.png"));
-        this.mFileSaveAsCore = new JMenuItem(Translator.getString("MAIN_PANEL_M_FILE_SAVE_AS_CORE"));
+        this.mFileSaveAsCore = new JMenuItem();
         this.mFileSaveAsCore.addActionListener(this);
         this.mFileSaveAsCore.setIcon(loadImageAsIconImage("icons/file_core.png"));
         this.mFileSaveAsCore.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.ALT_MASK));
-        this.mFileSaveAsScript = new JMenuItem(Translator.getString("MAIN_PANEL_M_FILE_SAVE_AS_SCRIPT"));
+        this.mFileSaveAsScript = new JMenuItem();
         this.mFileSaveAsScript.addActionListener(this);
         this.mFileSaveAsScript.setIcon(loadImageAsIconImage("icons/script.png"));
         this.mFileSaveAsScript.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.ALT_MASK | InputEvent.SHIFT_MASK));
@@ -262,15 +247,15 @@ public class MainPanel extends JPanel implements ActionListener {
         this.mFile.addSeparator();
         this.mFile.add(this.mFileExport);
 
-        this.mEditClear = new JMenuItem(Translator.getString("MAIN_PANEL_M_EDIT_CLEAR"));
+        this.mEditClear = new JMenuItem();
         this.mEditClear.addActionListener(this);
         this.mEditClear.setIcon(loadImageAsIconImage("icons/erase.png"));
         this.mEditClear.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.ALT_MASK | InputEvent.SHIFT_MASK));
-        this.mEditSettings = new JMenuItem(Translator.getString("MAIN_PANEL_M_EDIT_SETTINGS"));
+        this.mEditSettings = new JMenuItem();
         this.mEditSettings.addActionListener(this);
         this.mEditSettings.setIcon(loadImageAsIconImage("icons/tune.png"));
         this.mEditSettings.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_T, InputEvent.ALT_MASK | InputEvent.SHIFT_MASK));
-        this.mLanguage = new JMenu(Translator.getString("MAIN_PANEL_M_EDIT_LANGUAGE"));
+        this.mLanguage = new JMenu();
         this.mLanguage.addActionListener(this);
         this.mLanguage.setIcon(loadImageAsIconImage("icons/tune.png"));
         this.languages = new JCheckBoxMenuItem[Language.values().length];
@@ -286,8 +271,7 @@ public class MainPanel extends JPanel implements ActionListener {
                 ((JCheckBoxMenuItem) e.getSource()).setSelected(true);
                 Configuration.LANGUAGE_CHANGED = true;
                 Translator.refreshMap();
-                this.revalidate();
-                this.repaint();
+                Translator.translate();
             });
             if (Configuration.LANGUAGE.equals(language)) {
                 this.languages[i].setSelected(true);
@@ -301,11 +285,11 @@ public class MainPanel extends JPanel implements ActionListener {
         this.mEdit.add(this.mEditSettings);
         this.mEdit.add(this.mLanguage);
 
-        this.mHelpManual = new JMenuItem(Translator.getString("MAIN_PANEL_M_HELP_MANUAL"));
+        this.mHelpManual = new JMenuItem();
         this.mHelpManual.addActionListener(this);
         this.mHelpManual.setIcon(loadImageAsIconImage("icons/help_book.png"));
         this.mHelpManual.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, InputEvent.ALT_MASK | InputEvent.SHIFT_MASK));
-        this.mHelpInfo = new JMenuItem(Translator.getString("MAIN_PANEL_M_HELP_INFO"));
+        this.mHelpInfo = new JMenuItem();
         this.mHelpInfo.addActionListener(this);
         this.mHelpInfo.setIcon(loadImageAsIconImage("icons/info.png"));
         this.mHelpInfo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, InputEvent.ALT_MASK | InputEvent.SHIFT_MASK));
@@ -325,6 +309,8 @@ public class MainPanel extends JPanel implements ActionListener {
 		 */
 
         this.setSize(MIN_W, MIN_H);
+
+        Translator.registerTranslableComponent(this);
     }
 
     @Override
@@ -620,4 +606,42 @@ public class MainPanel extends JPanel implements ActionListener {
         this.bToolStep.setEnabled(true);
     }
 
+    @Override
+    public void translate() {
+        this.pView.setBorder(BorderFactory.createTitledBorder(null, Translator.getString("MAIN_PANEL_P_VIEW"),
+                TitledBorder.CENTER, TitledBorder.TOP, new Font("Tahoma", Font.BOLD, 11)));
+        this.pToolBox.setBorder(BorderFactory.createTitledBorder(null, Translator.getString("MAIN_PANEL_P_TOOL_BOX"),
+                TitledBorder.CENTER, TitledBorder.TOP, new Font("Tahoma", Font.BOLD, 11)));
+        this.pInfo.setBorder(BorderFactory.createTitledBorder(null, Translator.getString("MAIN_PANEL_P_INFO"),
+                TitledBorder.CENTER, TitledBorder.TOP, new Font("Tahoma", Font.BOLD, 11)));
+
+        this.bEditDelete.setToolTipText(Translator.getString("MAIN_PANEL_B_EDIT_DELETE_TOOLTIP"));
+        this.bEditConductor.setToolTipText(Translator.getString("MAIN_PANEL_B_EDIT_CONDUCTOR_TOOLTIP"));
+        this.bEditHead.setToolTipText(Translator.getString("MAIN_PANEL_B_EDIT_HEAD_TOOLTIP"));
+        this.bEditTail.setToolTipText(Translator.getString("MAIN_PANEL_B_EDIT_TAIL_TOOLTIP"));
+        this.bStruct.setToolTipText(Translator.getString("MAIN_PANEL_B_STRUCT_TOOLTIP"));
+        this.bNothing.setToolTipText(Translator.getString("MAIN_PANEL_B_NOTHING_TOOLTIP"));
+        this.js1.setToolTipText(Translator.getString("MAIN_PANEL_DELAY_TOOLTIP"));
+        this.js2.setToolTipText(Translator.getString("MAIN_PANEL_CPR_TOOLTIP"));
+        this.bToolStart.setToolTipText(Translator.getString("MAIN_PANEL_START_TOOLTIP"));
+        this.bToolStep.setToolTipText(Translator.getString("MAIN_PANEL_STEP_TOOLTIP"));
+
+        this.mFile.setText(Translator.getString("MAIN_PANEL_M_FILE"));
+        this.mEdit.setText(Translator.getString("MAIN_PANEL_M_EDIT"));
+        this.mHelp.setText(Translator.getString("MAIN_PANEL_M_HELP"));
+        this.mFileOpen.setText(Translator.getString("MAIN_PANEL_M_FILE_OPEN"));
+        this.mFileOpenCS.setText(Translator.getString("MAIN_PANEL_M_FILE_OPEN_CS"));
+        this.mFileOpenImage.setText(Translator.getString("MAIN_PANEL_M_FILE_OPEN_IMAGE"));
+        this.mFileExport.setText(Translator.getString("MAIN_PANEL_M_FILE_EXPORT"));
+        this.mFileExportImage.setText(Translator.getString("MAIN_PANEL_M_FILE_EXPORT_IMAGE"));
+        this.mFileSave.setText(Translator.getString("MAIN_PANEL_M_FILE_SAVE"));
+        this.mFileSaveAs.setText(Translator.getString("MAIN_PANEL_M_FILE_SAVE_AS"));
+        this.mFileSaveAsCore.setText(Translator.getString("MAIN_PANEL_M_FILE_SAVE_AS_CORE"));
+        this.mFileSaveAsScript.setText(Translator.getString("MAIN_PANEL_M_FILE_SAVE_AS_SCRIPT"));
+        this.mEditClear.setText(Translator.getString("MAIN_PANEL_M_EDIT_CLEAR"));
+        this.mEditSettings.setText(Translator.getString("MAIN_PANEL_M_EDIT_SETTINGS"));
+        this.mLanguage.setText(Translator.getString("MAIN_PANEL_M_HELP_MANUAL"));
+        this.mHelpManual.setText(Translator.getString("MAIN_PANEL_M_HELP_MANUAL"));
+        this.mHelpInfo.setText(Translator.getString("MAIN_PANEL_M_HELP_INFO"));
+    }
 }

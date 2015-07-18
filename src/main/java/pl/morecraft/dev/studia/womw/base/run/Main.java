@@ -35,7 +35,7 @@ public class Main {
         }
 
 		/*
-		 * reading locale
+         * Reading locale
 		 */
         Translator.createMap();
 
@@ -44,9 +44,15 @@ public class Main {
 		 */
         MainFrame mainAppFrame = new MainFrame();
 
-        mainAppFrame.setVisible(true);
+		/*
+         * Translate components
+		 */
+        Translator.translate();
 
-        //IOFile.readImageFile( "C:\\Users\\MS\\Desktop\\a.bmp" );
+		/*
+		 * Show app
+		 */
+        mainAppFrame.setVisible(true);
 
     }
 }

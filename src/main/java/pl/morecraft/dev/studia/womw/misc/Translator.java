@@ -1,15 +1,15 @@
 package pl.morecraft.dev.studia.womw.misc;
 
+import pl.morecraft.dev.studia.womw.core.interfaces.Translatable;
 import pl.morecraft.dev.studia.womw.misc.enums.Language;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 public class Translator {
 
     private static Map<String, String> languageMap;
+    private static List<Translatable> translatableList;
 
     public static void createMap() {
         Translator.refreshMap();
@@ -43,4 +43,17 @@ public class Translator {
         }
         return Translator.languageMap.get(key);
     }
+
+    public static void registerTranslableComponent(Translatable translatable) {
+        if (Translator.translatableList == null) {
+            Translator.translatableList = new LinkedList<>();
+        }
+        Translator.translatableList.add(translatable);
+    }
+
+    public static void translate() {
+        assert Translator.translatableList == null;
+        Translator.translatableList.forEach(Translatable::translate);
+    }
+
 }
