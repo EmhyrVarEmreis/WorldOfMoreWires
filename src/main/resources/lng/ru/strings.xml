@@ -2,11 +2,11 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
     <comment>World of More Wires Language File - RU/RU</comment>
-    <entry key="LOADING">Loading...</entry>
-    <entry key="OPTIMISATION">Optimisation...</entry>
-    <entry key="SAVING">Saving...</entry>
+    <entry key="LOADING">Загрузка...</entry>
+    <entry key="OPTIMISATION">Оптимизация...</entry>
+    <entry key="SAVING">Сохранение...</entry>
     <entry key="SAVED">Saved!</entry>
-    <entry key="ABOUT">About...</entry>
+    <entry key="ABOUT">Информация о программе</entry>
     <entry key="ACCEPT">Accept</entry>
     <entry key="REFRESH">Refresh</entry>
     <entry key="WARNING">Attention</entry>
@@ -32,16 +32,16 @@
     <entry key="MAIN_PANEL_CPR_TOOLTIP">Cycles per round</entry>
     <entry key="MAIN_PANEL_START_TOOLTIP">Start</entry>
     <entry key="MAIN_PANEL_STEP_TOOLTIP">Step forward</entry>
-    <entry key="MAIN_PANEL_M_FILE">File</entry>
-    <entry key="MAIN_PANEL_M_EDIT">Edit</entry>
-    <entry key="MAIN_PANEL_M_HELP">Help</entry>
+    <entry key="MAIN_PANEL_M_FILE">Файл</entry>
+    <entry key="MAIN_PANEL_M_EDIT">Изменить</entry>
+    <entry key="MAIN_PANEL_M_HELP">Помогите</entry>
     <entry key="MAIN_PANEL_M_FILE_OPEN">Open/Import...</entry>
     <entry key="MAIN_PANEL_M_FILE_OPEN_CS">Open file .womw/.womws ...</entry>
     <entry key="MAIN_PANEL_M_FILE_OPEN_IMAGE">Import image file...</entry>
     <entry key="MAIN_PANEL_M_FILE_EXPORT">Export...</entry>
     <entry key="MAIN_PANEL_M_FILE_EXPORT_IMAGE">Image...</entry>
-    <entry key="MAIN_PANEL_M_FILE_SAVE">Save</entry>
-    <entry key="MAIN_PANEL_M_FILE_SAVE_AS">Save as...</entry>
+    <entry key="MAIN_PANEL_M_FILE_SAVE">Сохранить</entry>
+    <entry key="MAIN_PANEL_M_FILE_SAVE_AS">Сохранить как...</entry>
     <entry key="MAIN_PANEL_M_FILE_SAVE_AS_CORE">"File .womw ..."</entry>
     <entry key="MAIN_PANEL_M_FILE_SAVE_AS_SCRIPT">File .womws ...</entry>
     <entry key="MAIN_PANEL_M_EDIT_SETTINGS">Settings</entry>

@@ -2,7 +2,11 @@ package pl.morecraft.dev.studia.womw.misc.enums;
 
 public enum Language {
 
-    XX("xx", "XX"), PL("pl", "Polski"), EN("en", "English");
+    XX("xx", "XX"),
+    PL("pl", "Polski"),
+    EN("en", "English"),
+    RU("ru", "Русский"),
+    DE("de", "Deutsch");
 
     private String code;
     private String description;
