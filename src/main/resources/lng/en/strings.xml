@@ -45,6 +45,7 @@
     <entry key="MAIN_PANEL_M_FILE_SAVE_AS_CORE">"File .womw ..."</entry>
     <entry key="MAIN_PANEL_M_FILE_SAVE_AS_SCRIPT">File .womws ...</entry>
     <entry key="MAIN_PANEL_M_EDIT_SETTINGS">Settings</entry>
+    <entry key="MAIN_PANEL_M_EDIT_LANGUAGE">Language...</entry>
     <entry key="MAIN_PANEL_M_EDIT_CLEAR">Erase map</entry>
     <entry key="MAIN_PANEL_M_HELP_MANUAL">Manual...</entry>
     <entry key="MAIN_PANEL_M_HELP_INFO">About this application...</entry>

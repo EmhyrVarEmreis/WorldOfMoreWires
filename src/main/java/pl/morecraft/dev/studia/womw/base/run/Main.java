@@ -21,7 +21,7 @@ public class Main {
          * Improving performance
 		 */
         System.setProperty("sun.java2d.noddraw", Boolean.TRUE.toString());
-		
+
 		/*
 		 * Reading properties
 		 */
@@ -30,7 +30,9 @@ public class Main {
 		/*
          * Setting locale
 		 */
-        Configuration.LANGUAGE = Language.valueOf(Locale.getDefault().getLanguage().toUpperCase());
+        if (!Configuration.LANGUAGE_CHANGED) {
+            Configuration.LANGUAGE = Language.valueOf(Locale.getDefault().getLanguage().toUpperCase());
+        }
 
 		/*
 		 * reading locale

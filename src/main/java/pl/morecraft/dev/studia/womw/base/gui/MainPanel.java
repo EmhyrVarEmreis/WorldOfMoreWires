@@ -8,6 +8,7 @@ import pl.morecraft.dev.studia.womw.misc.CoreBasicMain;
 import pl.morecraft.dev.studia.womw.misc.LoadFromRes;
 import pl.morecraft.dev.studia.womw.misc.Translator;
 import pl.morecraft.dev.studia.womw.misc.enums.EditingMode;
+import pl.morecraft.dev.studia.womw.misc.enums.Language;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -45,6 +46,8 @@ public class MainPanel extends JPanel implements ActionListener {
     private final JMenuBar menuBar;
     private final JMenu mFile, mHelp, mEdit;
     private final JMenu mFileExport;
+    private final JMenu mLanguage;
+    private final JCheckBoxMenuItem[] languages;
     private final JMenuItem mFileExportImage;
     private final JMenu mFileOpen;
     private final JMenuItem mFileOpenCS;
@@ -259,18 +262,44 @@ public class MainPanel extends JPanel implements ActionListener {
         this.mFile.addSeparator();
         this.mFile.add(this.mFileExport);
 
-        this.mEditSettings = new JMenuItem(Translator.getString("MAIN_PANEL_M_EDIT_SETTINGS"));
-        this.mEditSettings.addActionListener(this);
-        this.mEditSettings.setIcon(loadImageAsIconImage("icons/tune.png"));
-        this.mEditSettings.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_T, InputEvent.ALT_MASK | InputEvent.SHIFT_MASK));
         this.mEditClear = new JMenuItem(Translator.getString("MAIN_PANEL_M_EDIT_CLEAR"));
         this.mEditClear.addActionListener(this);
         this.mEditClear.setIcon(loadImageAsIconImage("icons/erase.png"));
         this.mEditClear.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.ALT_MASK | InputEvent.SHIFT_MASK));
+        this.mEditSettings = new JMenuItem(Translator.getString("MAIN_PANEL_M_EDIT_SETTINGS"));
+        this.mEditSettings.addActionListener(this);
+        this.mEditSettings.setIcon(loadImageAsIconImage("icons/tune.png"));
+        this.mEditSettings.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_T, InputEvent.ALT_MASK | InputEvent.SHIFT_MASK));
+        this.mLanguage = new JMenu(Translator.getString("MAIN_PANEL_M_EDIT_LANGUAGE"));
+        this.mLanguage.addActionListener(this);
+        this.mLanguage.setIcon(loadImageAsIconImage("icons/tune.png"));
+        this.languages = new JCheckBoxMenuItem[Language.values().length];
+        int i = 0;
+        for (Language language : Language.values()) {
+            this.languages[i] = new JCheckBoxMenuItem(language.getDescription());
+            this.languages[i].setIcon(loadImageAsIconImage("flags/" + language.getCode() + ".png"));
+            this.languages[i].addActionListener(e -> {
+                Configuration.LANGUAGE = language;
+                for (JCheckBoxMenuItem jCheckBoxMenuItem : this.languages) {
+                    jCheckBoxMenuItem.setSelected(false);
+                }
+                ((JCheckBoxMenuItem) e.getSource()).setSelected(true);
+                Configuration.LANGUAGE_CHANGED = true;
+                Translator.refreshMap();
+                this.revalidate();
+                this.repaint();
+            });
+            if (Configuration.LANGUAGE.equals(language)) {
+                this.languages[i].setSelected(true);
+            }
+            this.mLanguage.add(this.languages[i++]);
+        }
+
 
         this.mEdit.add(this.mEditClear);
         this.mEdit.addSeparator();
         this.mEdit.add(this.mEditSettings);
+        this.mEdit.add(this.mLanguage);
 
         this.mHelpManual = new JMenuItem(Translator.getString("MAIN_PANEL_M_HELP_MANUAL"));
         this.mHelpManual.addActionListener(this);

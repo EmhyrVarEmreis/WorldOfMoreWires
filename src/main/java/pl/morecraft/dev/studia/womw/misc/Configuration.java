@@ -13,6 +13,7 @@ import java.util.Properties;
 public class Configuration {
 
     public static Language LANGUAGE = Language.XX;
+    public static Boolean LANGUAGE_CHANGED = false;
     public static Language LANGUAGE_DEFAULT = Language.XX;
     public static Color CONDUCTOR_COLOR = Color.BLACK;
     public static Color HEAD_COLOR = Color.RED;
@@ -35,6 +36,7 @@ public class Configuration {
 
         Properties p = new Properties();
         p.setProperty("LANGUAGE", LANGUAGE.toString());
+        p.setProperty("LANGUAGE_CHANGED", LANGUAGE_CHANGED.toString());
         p.setProperty("CONDUCTOR_COLOR", CONDUCTOR_COLOR.getRGB() + "");
         p.setProperty("HEAD_COLOR", HEAD_COLOR.getRGB() + "");
         p.setProperty("TAIL_COLOR", TAIL_COLOR.getRGB() + "");
@@ -73,6 +75,10 @@ public class Configuration {
         tmp = p.getProperty("LANGUAGE");
         if (tmp != null) {
             LANGUAGE = Language.valueOf(tmp);
+        }
+        tmp = p.getProperty("LANGUAGE_CHANGED");
+        if (tmp != null) {
+            LANGUAGE_CHANGED = Boolean.valueOf(tmp);
         }
         tmp = p.getProperty("CONDUCTOR_COLOR");
         if (tmp != null) {

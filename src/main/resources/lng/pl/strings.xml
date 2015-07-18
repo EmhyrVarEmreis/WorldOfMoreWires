@@ -45,6 +45,7 @@
     <entry key="MAIN_PANEL_M_FILE_SAVE_AS_CORE">"Plik .womw ..."</entry>
     <entry key="MAIN_PANEL_M_FILE_SAVE_AS_SCRIPT">Plik .womws ...</entry>
     <entry key="MAIN_PANEL_M_EDIT_SETTINGS">Ustawienia</entry>
+    <entry key="MAIN_PANEL_M_EDIT_LANGUAGE">Język...</entry>
     <entry key="MAIN_PANEL_M_EDIT_CLEAR">Czyść mapę</entry>
     <entry key="MAIN_PANEL_M_HELP_MANUAL">Instrukcja...</entry>
     <entry key="MAIN_PANEL_M_HELP_INFO">Informacje o programie...</entry>
