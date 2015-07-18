@@ -1,6 +1,7 @@
 package pl.morecraft.dev.studia.womw.base.gui.dialogs;
 
 import pl.morecraft.dev.studia.womw.misc.Configuration;
+import pl.morecraft.dev.studia.womw.misc.LoadFromRes;
 import pl.morecraft.dev.studia.womw.misc.Translator;
 
 import javax.swing.*;
@@ -15,13 +16,18 @@ public class ManualDialog extends JDialog {
     private static final long serialVersionUID = 1L;
     private final JEditorPane jep1;
     private final JScrollPane sc1;
+    private final JButton bClose;
 
     public ManualDialog(Frame parent) {
         super(parent);
 
-        this.setLayout(new GridLayout(1, 1));
-        this.setSize(600, 400);
+        this.setLayout(new BorderLayout());
+        this.setSize(600, 430);
         this.setTitle(Translator.getString("MANUAL_TITLE"));
+
+        this.bClose = new JButton(LoadFromRes.loadImageAsIconImage("icons/apply.png"));
+        this.bClose.setPreferredSize(new Dimension(500, 30));
+        this.bClose.addActionListener(e -> ManualDialog.this.dispose());
 
         this.jep1 = new JEditorPane();
         this.jep1.setEditable(false);
@@ -38,6 +44,7 @@ public class ManualDialog extends JDialog {
 
         this.sc1 = new JScrollPane(this.jep1, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
-        this.add(this.sc1);
+        this.add(this.sc1, BorderLayout.CENTER);
+        this.add(this.bClose, BorderLayout.PAGE_END);
     }
 }
